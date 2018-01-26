@@ -1,6 +1,13 @@
 // http://ionicframework.com/docs/theming/
-
-
+body {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+}
+.paginas{
+    font-size: 150%;
+}
 // App Global Sass
 // --------------------------------------------------
 // Put style rules here that you want to apply globally. These

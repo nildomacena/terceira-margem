@@ -1,0 +1,23 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Textos</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding style="background-color: #f3f3f3" >
+  <ion-card *ngFor="let texto of textos">
+    <ion-card-header (click)="irParaTexto(texto)" >
+      #{{texto.numero}}
+    </ion-card-header>
+    <ion-card-content>
+      <p *ngFor="let paragrafo of texto.paragrafos">{{paragrafo}}</p>
+      <p *ngIf="texto.autor">{{texto?.autor}}</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

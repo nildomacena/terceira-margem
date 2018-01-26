@@ -1,0 +1,12 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{podcast.titulo}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <iframe *ngIf="sanitized" [src]="video" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="width: 100%"></iframe>
+</ion-content>

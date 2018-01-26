@@ -1,0 +1,25 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>#{{texto.numero}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="aumentarFonte()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+      <button ion-button icon-only (click)="diminuirFonte()">
+        <ion-icon name="remove"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+<ion-card>
+  <ion-card-content text-justify>
+    <p id="paragrafos" [style.font-size]="font_size + 'rem'" *ngFor="let paragrafo of texto.paragrafos">{{paragrafo}}</p>
+    <p>{{texto.autor}}</p>
+  </ion-card-content>
+</ion-card>
+</ion-content>

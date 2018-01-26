@@ -1,0 +1,42 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Podcasts - Season {{season}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content no-padding>
+  <ion-scroll scrollX="true" style="height: 12vw; width: 400%">
+      <button [class.season-selecionada]="season == 5" ion-button (click)="getSeason(5)" > Season 5</button>
+      <button [class.season-selecionada]="season == 4" ion-button (click)="getSeason(4)" > Season 4</button>
+      <button [class.season-selecionada]="season == 3" ion-button (click)="getSeason(3)" > Season 3</button>
+      <button [class.season-selecionada]="season == 2" ion-button (click)="getSeason(2)" > Season 2</button>
+      <button [class.season-selecionada]="season == 1" ion-button (click)="getSeason(1)" > Season 1</button>
+  </ion-scroll>
+  <!-- <ion-grid>
+    <ion-row>
+      <ion-col col-6><button [class.season-selecionada]="season == 5" ion-button block (click)="getSeason(5)" > Season 5</button></ion-col>
+      <ion-col col-6><button [class.season-selecionada]="season == 4" ion-button block (click)="getSeason(4)" > Season 4</button></ion-col>
+      <ion-col col-4><button [class.season-selecionada]="season == 3" ion-button block (click)="getSeason(3)" > Season 3</button></ion-col>  
+      <ion-col col-4><button [class.season-selecionada]="season == 2" ion-button block (click)="getSeason(2)" > Season 2</button></ion-col>
+      <ion-col col-4><button [class.season-selecionada]="season == 1" ion-button block (click)="getSeason(1)" > Season 1</button></ion-col>
+    </ion-row>
+  </ion-grid> -->
+  <hr>
+  <ion-grid class="grid-audios" *ngIf="podcasts.length > 0">
+    <ion-row *ngFor="let podcast of podcasts">
+      <ion-col text-center margin>
+        <div class="audio">
+          <h3>{{podcast.titulo}}</h3>
+          <p>by <b>TMR em Revista</b> | Season {{podcast.season}}</p>
+          <audio class="wp-audio-shortcode" id="audio-4632-2" preload="none" style="width: 100%;" controls="controls"><source type="audio/mpeg" [src]="podcast.link+'?_=2'" /><a [href]="podcast.link">{{podcast.link}}</a></audio>
+        </div>
+      </ion-col>  
+    </ion-row>
+  </ion-grid>
+</ion-content>

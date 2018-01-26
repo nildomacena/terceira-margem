@@ -1,0 +1,24 @@
+page-podcast {
+    ion-scroll{
+        white-space: nowrap;
+    }
+    ion-grid{
+        padding-left: 45px;
+        padding-right: 45px;
+    }
+
+    .grid-audios{
+        background-color: #f3f3f3;
+        min-height: 100%;
+    }
+    .audio{
+        padding: 15px;
+        background-color: white;
+        border-radius: 15px;
+    }
+
+    .season-selecionada{
+        background-color: #0d47a1;
+    }
+    
+}

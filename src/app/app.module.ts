@@ -8,16 +8,33 @@ import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
+import { FireProvider } from '../providers/fire';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { UtilProvider } from '../providers/util';
+
+const config = {
+  apiKey: "AIzaSyCgcxGVoyrah9RY-Aq3gxmVABUIDKdRR58",
+  authDomain: "terceira-margem.firebaseapp.com",
+  databaseURL: "https://terceira-margem.firebaseio.com",
+  projectId: "terceira-margem",
+  storageBucket: "terceira-margem.appspot.com",
+  messagingSenderId: "775958970136"
+};
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     ListPage
+    
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(config),
+    AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -28,7 +45,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    YoutubeVideoPlayer,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    FireProvider,
+    UtilProvider
   ]
 })
 export class AppModule {}
