@@ -11,14 +11,14 @@
 
 
 <ion-content no-padding>
-  <ion-scroll scrollX="true" style="height: 12vw; width: 400%">
+  <!--<ion-scroll scrollX="true" style="height: 12vw; width: 400%">
       <button [class.season-selecionada]="season == 5" ion-button (click)="getSeason(5)" > Season 5</button>
       <button [class.season-selecionada]="season == 4" ion-button (click)="getSeason(4)" > Season 4</button>
       <button [class.season-selecionada]="season == 3" ion-button (click)="getSeason(3)" > Season 3</button>
       <button [class.season-selecionada]="season == 2" ion-button (click)="getSeason(2)" > Season 2</button>
       <button [class.season-selecionada]="season == 1" ion-button (click)="getSeason(1)" > Season 1</button>
-  </ion-scroll>
-  <!-- <ion-grid>
+  </ion-scroll>-->
+  <ion-grid>
     <ion-row>
       <ion-col col-6><button [class.season-selecionada]="season == 5" ion-button block (click)="getSeason(5)" > Season 5</button></ion-col>
       <ion-col col-6><button [class.season-selecionada]="season == 4" ion-button block (click)="getSeason(4)" > Season 4</button></ion-col>
@@ -26,7 +26,7 @@
       <ion-col col-4><button [class.season-selecionada]="season == 2" ion-button block (click)="getSeason(2)" > Season 2</button></ion-col>
       <ion-col col-4><button [class.season-selecionada]="season == 1" ion-button block (click)="getSeason(1)" > Season 1</button></ion-col>
     </ion-row>
-  </ion-grid> -->
+  </ion-grid>
   <hr>
   <ion-grid class="grid-audios" *ngIf="podcasts.length > 0">
     <ion-row *ngFor="let podcast of podcasts">
