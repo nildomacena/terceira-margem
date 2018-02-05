@@ -17,7 +17,7 @@ export class TextosPage {
     public util: UtilProvider
   ) {
     this.util.load();
-    this.fire.getTextos().subscribe(snap => {
+    this.fire.getTextosDesc().subscribe(snap => {
       this.textos = this.fire.snapshotParaValue(snap);
       console.log(this.textos);
       this.util.stopLoading();

@@ -15,6 +15,10 @@ export class FireProvider {
     return this.db.list('textos').snapshotChanges();
   }
 
+  getTextosDesc():Observable<any>{
+    return this.db.list('textos', ref => ref.orderByChild('timestamp').limitToFirst(10)).snapshotChanges();
+  }
+
   getPodcastBySeason(season: any){
     return this.db.list('podcasts', ref => ref.orderByChild('season').equalTo(season)).valueChanges();
   }
@@ -31,5 +35,23 @@ export class FireProvider {
       novaLista.push(novoObjeto);
     });
     return novaLista;
+  }
+
+  addTextos(numero){
+    let timestamp = new Date().getTime();
+    if(numero <= 168){
+      this.db.list('textos').push({numero: numero, timestamp: -timestamp, corpo: '', paragrafos: []})
+        .then(_ => {
+          console.log(numero);
+          this.addTextos(numero+1);
+        })
+    }
+    else
+      return
+  }
+
+  addTexto(numero){
+    let timestamp = new Date().getTime();
+    return this.db.list('textos').push({numero: numero, timestamp: -timestamp, corpo: '', paragrafos: []})
   }
 }

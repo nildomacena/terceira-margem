@@ -23,7 +23,7 @@ export class MyApp {
     this.pages = [
       { title: 'Textos', component: 'TextosPage', icon: 'document'},
       { title: 'Podcast', component: 'PodcastPage', icon:'headset'},
-      { title: 'Vídeos', component: 'VideosPage', icon:'logo-youtube'},
+      { title: 'Vídeos', component: 'VideosPage', icon:'logo-youtube'}
     ];
 
   }
@@ -33,6 +33,8 @@ export class MyApp {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
+      this.statusBar.overlaysWebView(true);
+      this.statusBar.backgroundColorByHexString('#73c9eb');
       this.splashScreen.hide();
     });
   }

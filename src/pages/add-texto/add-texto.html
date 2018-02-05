@@ -1,0 +1,29 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    <ion-title>add-texto</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+
+    <ion-item>
+      <ion-label fixed>Título</ion-label>
+      <ion-input type="text" [(ngModel)]="numero" value=""></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <button ion-button (click)="enviar()">Enviar</button>
+    </ion-item>
+    <ion-item>
+      <button ion-button (click)="fire.addTextos(1)">add varios</button>
+    </ion-item>
+  </ion-list>
+  
+</ion-content>

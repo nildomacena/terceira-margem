@@ -13,6 +13,7 @@ import { FireProvider } from '../providers/fire';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { UtilProvider } from '../providers/util';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const config = {
   apiKey: "AIzaSyCgcxGVoyrah9RY-Aq3gxmVABUIDKdRR58",
@@ -33,6 +34,7 @@ const config = {
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    ReactiveFormsModule,
     AngularFireModule.initializeApp(config),
     AngularFireDatabaseModule
   ],
