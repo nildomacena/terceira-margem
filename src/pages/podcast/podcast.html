@@ -34,7 +34,7 @@
         <div class="audio">
           <h3>{{podcast.titulo}}</h3>
           <p>by <b>TMR em Revista</b> | Season {{podcast.season}}</p>
-          <audio class="wp-audio-shortcode" id="audio-4632-2" preload="none" style="width: 100%;" controls="controls"><source type="audio/mpeg" [src]="podcast.link+'?_=2'" /><a [href]="podcast.link">{{podcast.link}}</a></audio>
+          <audio class="wp-audio-shortcode" [id]="podcast.link" preload="none" style="width: 100%;" controls="controls"><source type="audio/mpeg" [src]="podcast.link+'?_=2'" /><a [href]="podcast.link">{{podcast.link}}</a></audio>
         </div>
       </ion-col>  
     </ion-row>

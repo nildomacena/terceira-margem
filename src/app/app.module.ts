@@ -6,6 +6,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 
+import { NativeAudio } from '@ionic-native/native-audio';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
@@ -48,6 +49,7 @@ const config = {
     StatusBar,
     SplashScreen,
     YoutubeVideoPlayer,
+    NativeAudio,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     FireProvider,
     UtilProvider
