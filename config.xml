@@ -84,6 +84,9 @@
     <plugin name="cordova-plugin-youtube-video-player" spec="^1.0.6" />
     <plugin name="ionic-plugin-keyboard" spec="^2.2.1" />
     <plugin name="cordova-plugin-nativeaudio" spec="^3.0.9" />
-    <engine name="android" spec="~6.2.3" />
     <allow-navigation href="http://10.0.0.100:8100" />
+    <allow-navigation href="http://192.168.2.246:8100" />
+    <plugin name="cordova-plugin-file-transfer" spec="^1.7.1" />
+    <plugin name="cordova-plugin-media" spec="^5.0.2" />
+    <engine name="android" spec="~6.3.0" />
 </widget>

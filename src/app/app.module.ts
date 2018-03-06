@@ -10,6 +10,11 @@ import { NativeAudio } from '@ionic-native/native-audio';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
+import { FileTransfer} from '@ionic-native/file-transfer';
+import { File } from '@ionic-native/file';
+import { Media } from '@ionic-native/media';
+
+
 import { FireProvider } from '../providers/fire';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -48,8 +53,11 @@ const config = {
   providers: [
     StatusBar,
     SplashScreen,
+    FileTransfer,
     YoutubeVideoPlayer,
     NativeAudio,
+    File,
+    Media,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     FireProvider,
     UtilProvider
