@@ -1,12 +1,13 @@
 import { Media, MediaObject } from '@ionic-native/media';
 import { Injectable } from '@angular/core';
-import { LoadingController, Loading } from 'ionic-angular';
+import { LoadingController, Loading, Range } from 'ionic-angular';
 import { Observable } from 'rxjs/Observable';
 import { Observer } from 'rxjs/Observer';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 @Injectable()
 export class UtilProvider {
+  
   loading: Loading
   faixaTocando: MediaObject;
   podcastTocando: any;

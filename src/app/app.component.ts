@@ -14,7 +14,7 @@ import { MediaObject } from '@ionic-native/media';
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
-
+  @ViewChild(Range) range: Range;
   rootPage: any = 'TextosPage';
   duracaoFaixa: string;
   pages: Array<{title: string, component: any, icon?: string}>;
@@ -31,6 +31,7 @@ export class MyApp {
     public splashScreen: SplashScreen, 
     public screenOrientation: ScreenOrientation,
     public util: UtilProvider
+
   ) {
     this.initializeApp();
     this.util.observableFaixa$.subscribe(result => {
@@ -70,10 +71,6 @@ export class MyApp {
 
   playPause(){
     this.util.tocar(this.podcastTocando);
-  }
-  range(){
-    console.log(this.faixaTocando);
-
   }
   openPage(page) {
     // Reset the content nav to have just this page
