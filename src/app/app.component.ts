@@ -15,13 +15,14 @@ import { MediaObject } from '@ionic-native/media';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
   @ViewChild(Range) range: Range;
+  pages: Array<{title: string, component: any, icon?: string}>;
+
   rootPage: any = 'TextosPage';
   duracaoFaixa: string;
-  pages: Array<{title: string, component: any, icon?: string}>;
   podcastTocando: any;
   faixaTocando: MediaObject;
   tocando: boolean = false;
-  atual: number = 15;
+  atual: number = 0;
   tempoFaixa: number = 0;
   labelRight: string = '0:00'
   labelLeft: string = '0:00'
@@ -40,11 +41,12 @@ export class MyApp {
         this.faixaTocando = result.faixa;
         this.tocando = result.tocando;
         this.podcastTocando = result.podcast;
+        this.tempoFaixa = this.faixaTocando.getDuration();
         this.faixaTocando.getCurrentPosition()
           .then(valor => {
-          this.atual = valor;
-          this.labelLeft = this.atual < 10? '00:0'+(this.atual%60).toFixed(0).toString(): this.atual < 60? '00:'+(this.atual%60).toFixed(0).toString(): (this.atual/60).toFixed(0).toString()+':'+(this.atual%60).toFixed(0).toString();
-          console.log('getCurrentPosition', valor)
+            this.atualizaRange(valor);
+          console.log('getCurrentPosition', valor);
+          console.log('label left', this.labelLeft);
         });
       }
     })
@@ -56,7 +58,11 @@ export class MyApp {
     ];
 
   }
-
+  atualizaRange(valor){
+    this.tempoFaixa = valor;
+    this.atual = valor/this.faixaTocando.getDuration()*100;
+    this.labelLeft = valor < 10? '00:0'+(valor%60).toFixed(0).toString(): valor < 60? '00:'+(valor%60).toFixed(0).toString(): (valor/60).toFixed(0).toString()+':'+(valor%60).toFixed(0).toString();
+  }
   initializeApp() {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
@@ -77,4 +83,17 @@ export class MyApp {
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
   }
+
+  onChangeRange(event){
+    console.log('range event', event);
+    if(event < 99){
+      this.faixaTocando.seekTo(Math.floor((this.faixaTocando.getDuration()*event/100)*1000));
+      this.faixaTocando.getCurrentPosition()
+        .then(result => {
+          this.atualizaRange(result);
+          console.log('get current position range', result)
+        });
+    }
+  }
+
 }

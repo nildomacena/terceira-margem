@@ -60,12 +60,17 @@ export class UtilProvider {
     }
 
     this.faixaTocando.onStatusUpdate.subscribe(status => {
-      console.log(status);
       setTimeout(() => {
         this.duracaoFaixa = (this.faixaTocando.getDuration()/60).toFixed(0).toString(),':',(this.faixaTocando.getDuration()%60).toFixed(0).toString();
         console.log(this.duracaoFaixa);
       }, 500);
     });
 
+  }
+
+  goTo(time){
+    //this.faixaTocando.seekTo(time*1000);
+    console.log('time',time,'Duração: ', this.faixaTocando.getDuration(), 'go to', Math.floor((this.faixaTocando.getDuration()*time/100)*1000));
+    this.faixaTocando.seekTo(Math.floor((this.faixaTocando.getDuration()*time/100)*1000));
   }
 }

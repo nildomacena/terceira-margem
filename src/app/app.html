@@ -24,8 +24,8 @@
       </ion-col>
       <ion-col col-3> <b>{{podcastTocando?.titulo}}</b><br><i>Season {{podcastTocando?.season}}</i></ion-col>
       <ion-col col-7 no-padding>
-          <ion-range min="0" max="100" step="1" color="light" pin="false" (click)="range()" [(ngModel)]="atual">
-            <ion-label range-left>{{labelLeft}}</ion-label>
+          <ion-range *ngIf="tocando" color="light" pin="false" [(ngModel)]="atual" (ngModelChange)="onChangeRange($event)">
+            <ion-label range-left>{{tempoFaixa | tempo}}</ion-label>
             <ion-label range-right>{{(this.faixaTocando.getDuration()/60).toFixed(0).toString()+':'+(this.faixaTocando.getDuration()%60).toFixed(0).toString()}}</ion-label>
           </ion-range>
       </ion-col>
