@@ -4,6 +4,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FileTransfer, FileTransferObject } from '@ionic-native/file-transfer';
 import { File } from '@ionic-native/file';
 import { Media, MediaObject } from '@ionic-native/media';
+import { UtilProvider } from '../../providers/util';
 
 @IonicPage()
 @Component({
@@ -20,6 +21,7 @@ export class PodcastPage {
   tocando: boolean = false;
   faixaTocando: MediaObject;
   constructor(
+    public util: UtilProvider,
     public navCtrl: NavController, 
     public navParams: NavParams,
     public fire: FireProvider,
@@ -65,6 +67,8 @@ export class PodcastPage {
       })
   }
   tocar(podcast){
+    this.util.tocar(podcast);
+    /*
     if(this.podcastTocando == podcast && this.tocando){
       this.faixaTocando.pause();
       this.tocando = false;
@@ -81,7 +85,7 @@ export class PodcastPage {
       this.tocando = true;
       this.podcastTocando = podcast;
     }
-    this.faixaTocando.onStatusUpdate.subscribe(status => console.log(status));
+    this.faixaTocando.onStatusUpdate.subscribe(status => console.log(status));*/
     
   }
 
@@ -111,6 +115,14 @@ export class PodcastPage {
           this.progresso = 0;
           console.error(err);
         });
+  }
+
+  playMedia(podcast){
+    let faixaOnline = this.media.create(podcast.link);
+    faixaOnline.play();
+    faixaOnline.onStatusUpdate.subscribe(result => {
+      console.log(result)
+    })
   }
 
 }

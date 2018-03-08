@@ -13,7 +13,7 @@ import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
 import { FileTransfer} from '@ionic-native/file-transfer';
 import { File } from '@ionic-native/file';
 import { Media } from '@ionic-native/media';
-
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 import { FireProvider } from '../providers/fire';
 import { AngularFireModule } from 'angularfire2';
@@ -58,6 +58,7 @@ const config = {
     NativeAudio,
     File,
     Media,
+    ScreenOrientation,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     FireProvider,
     UtilProvider

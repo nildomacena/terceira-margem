@@ -16,3 +16,20 @@
 
 <!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
 <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
+<ion-footer class="footer-faixa" *ngIf="podcastTocando" >
+  <ion-grid no-margin-left>
+    <ion-row>
+      <ion-col col-2>
+        <button id="playPause" (click)="playPause()" ion-button color="dark" outline round icon-only><ion-icon [name]="tocando? 'pause':'play'"></ion-icon></button>
+      </ion-col>
+      <ion-col col-3> <b>{{podcastTocando?.titulo}}</b><br><i>Season {{podcastTocando?.season}}</i></ion-col>
+      <ion-col col-7 no-padding>
+          <ion-range min="0" max="100" step="1" color="light" pin="false" (click)="range()" [(ngModel)]="atual">
+            <ion-label range-left>{{labelLeft}}</ion-label>
+            <ion-label range-right>{{(this.faixaTocando.getDuration()/60).toFixed(0).toString()+':'+(this.faixaTocando.getDuration()%60).toFixed(0).toString()}}</ion-label>
+          </ion-range>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+ 
+</ion-footer>
